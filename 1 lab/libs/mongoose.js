@@ -27,10 +27,11 @@ var Article = new Schema({
     description: { type: String, required: true },
     images: [Images],
     modified: { type: Date, default: Date.now }
-  });
-  Article.path('title').validate(function (v) {
+});
+Article.path('title').validate(function (v) {
     return v.length > 5 && v.length < 70;
-  });
+});
+
 var ArticleModel = mongoose.model('Article', Article);
 
 module.exports.ArticleModel = ArticleModel;

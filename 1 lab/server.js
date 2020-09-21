@@ -66,7 +66,8 @@ app.get('/api/articles/:id', function (req, res) {
     if(!article) {
       res.statusCode = 404;
       return res.send({ error: 'Not found' });
-    } if (!err) {
+    }
+    if (!err) {
       return res.send({ status: 'OK', article:article });
     } else {
       res.statusCode = 500;
