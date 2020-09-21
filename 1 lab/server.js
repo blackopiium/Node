@@ -3,7 +3,7 @@ var favicon = require('serve-favicon');
 var bodyParser = require('body-parser');
 var log = require('./libs/log')(module);
 var logger = require('morgan');
-var path= require('path');
+var path = require('path');
 var methodOverride = require('method-override');
 var config = require('./libs/config');
 var app = express();
@@ -21,7 +21,7 @@ app.get('/api', function (req, res) {
   res.send('API is running');
 });
 
-app.get('/api/articles', function(req, res) {
+app.get('/api/articles', function (req, res) {
   return ArticleModel.find(function (err, articles) {
     if (!err) {
       return res.send(articles);
@@ -33,7 +33,7 @@ app.get('/api/articles', function(req, res) {
   });
 });
 
-app.post('/api/articles', function(req, res) {
+app.post('/api/articles', function (req, res) {
   var article = new ArticleModel({
     title: req.body.title,
     author: req.body.author,
@@ -61,7 +61,7 @@ app.post('/api/articles', function(req, res) {
   });
 });
 
-app.get('/api/articles/:id', function(req, res) {
+app.get('/api/articles/:id', function (req, res) {
   return ArticleModel.findById(req.params.id, function (err, article) {
     if(!article) {
       res.statusCode = 404;
