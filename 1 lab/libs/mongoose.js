@@ -1,14 +1,18 @@
 var config = require('./config');
 var mongoose = require('mongoose');
 var log = require('./log')(module);
+
 mongoose.connect(config.get('mongoose:uri'));
+
 var db = mongoose.connection;
-db.on('error', function (err) {
+
+db.on('error', function (err){
   log.error('connection error:', err.message);
 });
-db.once('open', function callback () {
+db.once('open', function callback(){
   log.info("Connected to DB!");
 });
+
 var Schema = mongoose.Schema;
 var Images = new Schema({
   kind: {
@@ -28,4 +32,5 @@ var Images = new Schema({
     return v.length > 5 && v.length < 70;
   });
   var ArticleModel = mongoose.model('Article', Article);
+
   module.exports.ArticleModel = ArticleModel;

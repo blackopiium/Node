@@ -1,4 +1,5 @@
 var winston = require('winston');
+
 function getLogger(module) {
   var path = module.filename.split('/').slice(-2).join('/');
   return new winston.createLogger({
