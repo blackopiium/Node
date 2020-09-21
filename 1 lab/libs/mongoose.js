@@ -21,7 +21,7 @@ var Images = new Schema({
     required: true },
     url: { type: String, required: true }
   });
-  var Article = new Schema({
+var Article = new Schema({
     title: { type: String, required: true },
     author: { type: String, required: true },
     description: { type: String, required: true },
@@ -31,6 +31,6 @@ var Images = new Schema({
   Article.path('title').validate(function (v) {
     return v.length > 5 && v.length < 70;
   });
-  var ArticleModel = mongoose.model('Article', Article);
+var ArticleModel = mongoose.model('Article', Article);
 
-  module.exports.ArticleModel = ArticleModel;
+module.exports.ArticleModel = ArticleModel;
