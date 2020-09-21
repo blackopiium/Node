@@ -20,6 +20,7 @@ var ArticleModel = require('./libs/mongoose').ArticleModel;
 app.get('/api', function (req, res){
   res.send('API is running');
 });
+
 app.get('/api/articles', function(req, res){
   return ArticleModel.find(function (err, articles){
     if (!err){
@@ -103,6 +104,7 @@ app.put('/api/articles/:id', function (req, res){
     });
   });
 });
+
 app.delete('/api/articles/:id', function (req, res){
   return ArticleModel.findById(req.params.id, function (err, article) {
     if(!article){
